@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\backend",
     "\\src",
     "\\src\\components",
     "\\src\\pages"
   ],
-  "SelectedNode": "\\src\\index.tsx",
+  "SelectedNode": "\\backend",
   "PreviewInSolutionExplorer": false
 }

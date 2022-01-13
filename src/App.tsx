@@ -3,13 +3,16 @@ import StyledPage from './pages/StyledPage';
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { createTheme, ThemeProvider } from '@material-ui/core';
-import { blue, orange } from '@material-ui/core/colors';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
     palette: {
-        primary: blue,
-        secondary: orange,
+        primary: {
+            main: '#329ba8',
+        },
+        secondary: {
+            main: '#496788',
+        },
     },
 });
 

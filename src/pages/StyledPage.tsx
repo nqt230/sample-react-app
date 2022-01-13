@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
     page: {
-        backgroundColor: '#D7EAE9',
+        backgroundColor: '#000000',
         minHeight: '100vh',
         height: '100%',
     },
