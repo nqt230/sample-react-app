@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\backend",
+    "\\backend\\static",
     "\\src",
     "\\src\\components",
     "\\src\\pages"
   ],
-  "SelectedNode": "\\backend",
   "PreviewInSolutionExplorer": false
 }
