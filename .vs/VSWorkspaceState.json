@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\backend",
-    "\\backend\\static",
     "\\src",
     "\\src\\components",
+    "\\src\\img",
     "\\src\\pages"
   ],
+  "SelectedNode": "\\.prettierrc.js",
   "PreviewInSolutionExplorer": false
 }
