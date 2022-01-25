@@ -1,8 +1,7 @@
 import background from '../img/bg_1.jpg';
-import { setUid } from '../app/userSlice';
 import axios from 'axios';
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -28,9 +27,25 @@ interface State {
     errMsg: string;
 }
 
-const Login: React.FC = () => {
+interface CookieSetOptions {
+    path: string;
+    expires: Date;
+    maxAge: number;
+    domain: string;
+    secure: boolean;
+    httpOnly: boolean;
+    sameSite: boolean | 'none' | 'lax' | 'strict';
+}
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+interface Props {
+    setCookie: (name: string, value: any, options?: CookieSetOptions | undefined) => void;
+}
+/* eslint-enable @typescript-eslint/no-explicit-any */
+
+const Login: React.FC<Props> = (props) => {
+    const { setCookie } = props;
     const baseURL = useSelector((state: RootState) => state.url.baseURL);
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [values, setValues] = React.useState<State>({
         email: '',
@@ -54,6 +69,11 @@ const Login: React.FC = () => {
     };
     const handleMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
+    };
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            login();
+        }
     };
     const handleErrClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') {
@@ -84,8 +104,7 @@ const Login: React.FC = () => {
                     ...values,
                     isLoading: false,
                 });
-                dispatch(setUid(response.data));
-                console.log(`User${response.data} has logged in. `);
+                setCookie('uid', response.data);
                 navigate('/dashboard');
             } else {
                 setValues({
@@ -138,12 +157,18 @@ const Login: React.FC = () => {
                 <Paper sx={{ padding: '20px' }} elevation={3}>
                     <Stack spacing={4} m={2}>
                         <h2>{'Task Management App'}</h2>
-                        <TextField label="Email" value={values.email} onChange={handleChange('email')} />
+                        <TextField
+                            label="Email"
+                            value={values.email}
+                            onChange={handleChange('email')}
+                            onKeyDown={handleKeyDown}
+                        />
                         <TextField
                             type={values.showPw ? 'text' : 'password'}
                             label="Password"
                             value={values.password}
                             onChange={handleChange('password')}
+                            onKeyDown={handleKeyDown}
                             InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="end">

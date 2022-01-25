@@ -1,38 +1,43 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface task {
+export interface Notification {
+    notification_id: number;
+    notify_date: string;
+    email_notify: boolean;
+    telegram_notify: boolean;
+}
+
+export interface Task {
     task_id: number;
-    category_id: keyof categories;
+    category_id: keyof Categories;
     order_number: number;
     name: string;
     description: string;
     due_date: string;
-    notify_date: string;
     is_done: boolean;
     is_open: boolean;
+    notifications: Notification[];
 }
 
-type tasks = task[];
+export type Tasks = Task[];
 
-export interface category {
-    category_id: keyof categories;
+export interface Category {
+    category_id: keyof Categories;
     name: string;
     priority: number;
     color: string;
 }
 
-export interface categories {
-    [category_id: number]: category;
+export interface Categories {
+    [category_id: number]: Category;
 }
 
 interface userState {
-    uid: number;
-    tasks: tasks;
-    categories: categories;
+    tasks: Tasks;
+    categories: Categories;
 }
 
 const initialState = {
-    uid: 0,
     tasks: [],
     categories: {},
 } as userState;
@@ -41,26 +46,23 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUid: (state, action) => {
-            state.uid = action.payload;
-        },
         setTasks: (state, action) => {
             state.tasks = action.payload;
         },
         setTask: (state, action) => {
             state.tasks[action.payload.index] = action.payload.value;
         },
-        addCategory: (state, action) => {
-            state.categories = {
-                ...state.categories,
-                [action.payload.id]: action.payload.value,
-            };
+        setCategories: (state, action) => {
+            state.categories = action.payload;
         },
         setCategory: (state, action) => {
             state.categories[action.payload.id] = action.payload.value;
         },
+        removeCategory: (state, action) => {
+            delete state.categories[action.payload.id];
+        },
     },
 });
 
-export const { setUid, setTasks, setTask, addCategory, setCategory } = userSlice.actions;
+export const { setTasks, setTask, setCategories, setCategory, removeCategory } = userSlice.actions;
 export default userSlice.reducer;

@@ -3,10 +3,10 @@
     "",
     "\\backend",
     "\\src",
-    "\\src\\components",
+    "\\src\\app",
     "\\src\\img",
     "\\src\\pages"
   ],
-  "SelectedNode": "\\.prettierrc.js",
+  "SelectedNode": "\\backend\\startServer.bat",
   "PreviewInSolutionExplorer": false
 }
