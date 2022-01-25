@@ -33,10 +33,10 @@ const Register: React.FC = () => {
     const baseURL = useSelector((state: RootState) => state.url.baseURL);
     const navigate = useNavigate();
     const [values, setValues] = React.useState<State>({
-        email: 'ngqiting@gmail.com',
-        password: '39207481Aa@',
+        email: '',
+        password: '',
         showPw: false,
-        repassword: '39207481Aa@',
+        repassword: '',
         showRePw: false,
         showErr: false,
         isLoading: false,

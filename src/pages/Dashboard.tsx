@@ -851,7 +851,7 @@ const Dashboard: React.FC = () => {
                             {'Add task'}
                         </Button>
                         <Button variant="contained" color="primary" onClick={handleBoolToggle('viewCategories')}>
-                            {'View categories'}
+                            {'View and edit categories'}
                         </Button>
                     </Stack>
                 </Paper>

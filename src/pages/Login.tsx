@@ -33,8 +33,8 @@ const Login: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [values, setValues] = React.useState<State>({
-        email: 'ngqiting@gmail.com',
-        password: '39207481Aa@',
+        email: '',
+        password: '',
         showPw: false,
         showErr: false,
         isLoading: false,

@@ -1,10 +1,7 @@
-# CVWO Assignment Sample React App
+# CVWO Assignment Task Management App
 
-This sample React app is provided to help you experiment and practice web development fundamentals.
-It shows how certain functionality can be implemented.
-However, do note that this is **far from a model example**.
-After all, we want to see how you maximise your learning in web development
-and good software development practices.
+This is a simple task management app created for the CVWO assignment. 
+Done by: Ng Qi Ting, A0233137M
 
 ## Getting Started
 
@@ -20,15 +17,24 @@ yarn install
 ```bash
 yarn start
 ```
-6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-7. You should see a page like this.
-![Basic Page](public/images/BasicPage.png)
+6. Open another terminal and navigate to the backend file located in the same directory. 
+7. Install backend dependencies by entering this command:
+```bash
+go get .
+```
+8. Start the backend server by entering this command:
+```bash
+go run server
+```
+9. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
    
 ### Navigating the code
 This is the main file structure
 ```
 .
 ├── node_modules
+├── backend
 ├── public
 ├── src
 ├── README.md
@@ -40,6 +46,7 @@ This is the main file structure
 ```
 
 Main directories/files to note:
+* `backend` contains all the backend source code and server data.
 * `src` usually includes all your source code. That is where most of your functional code will be.
 * `README.md` is a form of documentation about the project. It is what you are reading right now.
 * `package.json` contains important metadata, for example, the dependencies and available scripts in the project.
