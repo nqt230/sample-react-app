@@ -17,12 +17,12 @@ import (
     tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
-const baseURL = "http://localhost:8080/"
+const baseURL = "https://cvwo-app230-backend.herokuapp.com/"
 const dbPath = "./server_data.db"
 const driverName = "sqlite3"
 const appEmail = "taskmanagerapp230@gmail.com"
 const appPass = "56482309(uU"
-const telebotToken = "5188994370:AAGGZnkL6r4p0Z5UBxTqmR-ccgp2FnImlyc"
+const telebotToken = "5047242435:AAERYEeiXLqDfrFgEmvmgzzw16FlbOqrknU"
 
 func handleErr(err error) {
     if err != nil {
