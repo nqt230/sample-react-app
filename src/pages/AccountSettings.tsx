@@ -614,7 +614,7 @@ const AccountSettings: React.FC<Props> = (props) => {
                                             </IconButton>
                                         </Typography>
                                         <Typography variant="body1" align="left">
-                                            {'Telegram bot: http://t.me/cvwotaskmanagementapp230_bot'}
+                                            {'Telegram bot: http://t.me/cvwoapp230_bot'}
                                         </Typography>
                                         <TextField
                                             size="small"
