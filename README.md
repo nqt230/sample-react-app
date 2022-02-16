@@ -3,6 +3,8 @@
 This is a simple task management app created for the CVWO assignment. 
 Done by: Ng Qi Ting, A0233137M
 
+The app has been deployed on heroku. You can access it [here](https://cvwo-app230-frontend.herokuapp.com/).
+
 ## Getting Started
 
 ### Running the app
