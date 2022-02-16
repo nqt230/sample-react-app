@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
     "fmt"
     "log"
     "net/http"
@@ -1292,7 +1293,11 @@ func main() {
     http.HandleFunc("/editNotification", func(w http.ResponseWriter, r *http.Request){ editNotificationHandler(w, r, s, bot) })
     http.HandleFunc("/deleteNotification", func(w http.ResponseWriter, r *http.Request){ deleteNotificationHandler(w, r, s) })
     // Start server
-    fmt.Println("Starting server at port 8080")
-    err := http.ListenAndServe(":8080", nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+    fmt.Println("Starting server at port " + port)
+    err := http.ListenAndServe(":" + port, nil)
     handleErr(err)
 }
