@@ -869,8 +869,8 @@ const Dashboard: React.FC<Props> = (props) => {
             };
             dispatch(setTask(payload));
             updateTask(newRow);
-            const newTasks = tasksFiltered.map((row, i) => {
-                if (i === payload.index) {
+            const newTasks = tasksFiltered.map((row) => {
+                if (row.task_id === newRow.task_id) {
                     return newRow;
                 } else {
                     return row;
